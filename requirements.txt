@@ -8,3 +8,5 @@ streamlit-feedback
 langchain-community
 python-dotenv
 pika
+langchain_anthropic
+pymongo
