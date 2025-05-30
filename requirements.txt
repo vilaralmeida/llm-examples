@@ -10,3 +10,10 @@ python-dotenv
 pika
 langchain_anthropic
 pymongo
+typing
+pydantic_ai
+py2neo
+json
+python-dotenv
+boto3
+streamlit_quill
