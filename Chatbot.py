@@ -24,7 +24,6 @@ from streamlit_quill import st_quill
 import json
 import time
 import re
-from langfuse.decorators import observe, langfuse_context
 from dataclasses import dataclass
 from pydantic_ai import Agent, RunContext
 from pydantic_ai.messages import ModelMessage
