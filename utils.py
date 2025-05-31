@@ -216,17 +216,19 @@ def carrega_fatos(documento, personagem, autor) -> str:
 
 
 instrucoes = """
-Você é um ajudante na jornada de um escritor em melhorar a escrita de seu conteúdo.
+Iremos construir um filme juntos! Para isso vamos construir uma história narrativa separada em cenas e com foco em um personagem.
 
-O conteúdo escrito por ele é: {nova_historia}
+O Personagem foco da história é: {personagem}.  
 
-O tom das sugestões deve estar alinhado com o estilo geral da história, seja ele esperançoso, trágico, misterioso ou aberto.
+A história deverá se basear nas seguintes propostas diretivas: {nova_historia}.
 
-IMPORTANT: SOMENTE O TEXTO DEVE SER A SAÍDA! NÃO INCLUIR QUALQUER REFERENCIA AS DECISÕES TOMADAS, SOBRE OS PARAMETROS DE ENTRADA E QUALQUER OUTRA INFORMAÇÃO QUE NÃO SEJA ESTRITAMENTE SOBRE A HISTÓRIA!!!
+O tom da narrativa deve estar alinhado com o estilo geral da proposta, seja ele comico,  esperançoso, trágico, misterioso ou aberto.
 
-Após o título coloque um ponto final.
+IMPORTANTE: O RESULTADO DA HISTÓRIA DEVE SER NUM FORMATO DE CENAS OU ATOS SEPARADOS POR PARÁGRAFOS E DE FORMA A SER POSSIVEL CONSTRUIR UM VIDEO/FILME A PARTIR DA NARRATIVA. LOGO AS CENAS DEVEM SER VISUALMENTE INTERESSANTES.
 
-NA RESPOSTA NÃO UTILIZAR \\n para quebra de linha.
+IMPORTANTE: SOMENTE O TEXTO DEVE SER A SAÍDA! NÃO INCLUIR QUALQUER REFERENCIA AS DECISÕES TOMADAS, SOBRE OS PARAMETROS DE ENTRADA E QUALQUER OUTRA INFORMAÇÃO QUE NÃO SEJA ESTRITAMENTE SOBRE A HISTÓRIA!!!
+
+NÃO INCLUIR O TITULO NA NARRATIVA FINAL.
 
 IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
 
@@ -330,9 +332,10 @@ IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
 """
 
 
-def get_instrucoes(nova_historia, idioma):
+def get_instrucoes(nova_historia, personagem, idioma):
     return instrucoes.format(
         nova_historia = nova_historia,
+        personagem=personagem,
         IDIOMA=idioma
     )       
 

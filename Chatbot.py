@@ -129,7 +129,7 @@ OPENAI_MODELS = ("gpt-4.1-2025-04-14", "gpt-4.1-mini-2025-04-14", "gpt-4.1-nano-
                    "gpt-4o-realtime-preview-2024-12-17", "gpt-4o-realtime-preview-2024-10-01",
                    "gpt-4o-mini-2024-07-18", "gpt-4o-mini-realtime-preview-2024-12-17",
                    "o1-2024-12-17", "o1-preview-2024-09-12", "o4-mini-2025-04-16",
-                   "o3-mini-2025-01-31", "o1-mini-2024-09-12" , "--- PREMIUM MODELS ---", "o1-pro-2025-03-19", "gpt-4.5-preview-2025-02-27")
+                   "o3-mini-2025-01-31", "o1-mini-2024-09-12" , "--- PREMIUM MODELS ---", "gpt-4.5-preview-2025-02-27")
 
 
 # ANTHROPIC_MODELS = ("claude-opus-4-20250514", "claude-sonnet-4-20250514", "claude-3-7-sonnet-20250219", "claude-3-5-haiku-20241022")
@@ -215,7 +215,8 @@ def escolheNarrativa():
         # st.write(nova_historia_texto)
         
         prompt_instrucoes = get_instrucoes(nova_historia=nova_historia_texto,
-                                                          idioma=st.session_state.idioma)        
+                                           personagem = st.session_state.personagem,
+                                           idioma=st.session_state.idioma)        
         
         result_narrativa = None
         
@@ -328,7 +329,7 @@ async def chat():
 
         col1, col2, col3, col4 = st.columns([1,1,1,1])    
         with col1:
-            st.session_state.openai_model = st.selectbox("Modelo OpenAI:",OPENAI_MODELS_1, key="openai_model_box")
+            st.session_state.openai_model = st.selectbox("Modelo OpenAI:",OPENAI_MODELS, key="openai_model_box")
         with col2:  
             st.session_state.anthropic_model = st.selectbox("Modelo Anthropic:",ANTHROPIC_MODELS,key="anthropic_model_box")  
         with col3:              
