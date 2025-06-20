@@ -235,7 +235,39 @@ IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
 """
 
 
+PROMPT_FINAL_TEXTO_INICIANTE = """
+
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+O titulo da nova historia é: {titulo}
+
+A narrativa deve ser baseada na seguinte proposta:
+{nova_historia}
+
+################################
+
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+
+{USO_HISTORIA}
+
+
+OS FATOS QUE SUBSIDIAM A NARRATIVA SAO OS SEGUINTES:
+
+{FACTS}
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
+
+
 PROMPT_PERSONAGEM = """
+
+VOCE É UM CONTADOR DE ESTÓRIAS, ESPECIALISTA EM SUGERIR IDEIAS DE COMO UM TEXTO PODE SE TRANSFORMAR EM UMA BOA ESTORIA.
 
 PRECISO QUE ME DÊ {COUNT} IDÉIAS DE COMO AVANÇAR COM A ESCRITA DO MEU LIVRO/CONTO. 
 
@@ -284,10 +316,11 @@ IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
 
 PROMPT_FATO = """
 
+VOCE É UM CONTADOR DE ESTÓRIAS, ESPECIALISTA EM SUGERIR IDEIAS DE COMO UM TEXTO PODE SE TRANSFORMAR EM UMA BOA ESTORIA.
+
 PRECISO QUE ME DÊ {COUNT} IDÉIAS DE COMO AVANÇAR COM A ESCRITA DO MEU LIVRO/CONTO. 
 
 O FOCO DA SUGESTAO DEVE SER NO FATO: {FATO}.
-
 
 PARA CADA UMA DAS {COUNT} IDEIAS, CONSIDERE:
 
@@ -332,6 +365,348 @@ IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
 """
 
 
+PROMPT_TEXTO_INTERMEDIARIO = """
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS. 
+
+
+################################
+ESTRUTURA DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{ESTRUTURA}
+
+
+################################
+RECURSOS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{RECURSO}
+
+################################
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+
+{USO_HISTORIA}
+
+################################
+FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
+
+{FACTS}
+
+Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
+
+- Titulo: Um titulo que resume a narrativa proposta.
+- Proposta: Proposta que deverá evoluir com base na NARRATIVA, na PERSONAGEM, estrutura e recurso narrativo e motivo/objetivo sugerido pelo usuário. 
+
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
+PROMPT_FATO_INTERMEDIARIO = """
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS. 
+
+Todas as  Narrativas PROPOSTAS possuem foco no fato: {FATO}
+
+################################
+ESTRUTURA DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{ESTRUTURA}
+
+
+################################
+RECURSOS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{RECURSO}
+
+################################
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+
+{USO_HISTORIA}
+
+################################
+FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
+
+{FACTS}
+
+Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
+
+- Titulo: Um titulo que resume a narrativa proposta.
+- Proposta: Proposta que deverá evoluir com base na NARRATIVA, na PERSONAGEM, estrutura e recurso narrativo e motivo/objetivo sugerido pelo usuário. 
+
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
+PROMPT_PERSONAGEM_INTERMEDIARIO = """
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS. 
+
+Todas as  Narrativas PROPOSTAS possuem foco no personagem: {PERSONAGEM}
+
+################################
+ESTRUTURA DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{ESTRUTURA}
+
+
+################################
+RECURSOS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{RECURSO}
+
+################################
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+{USO_HISTORIA}
+
+################################
+FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
+{FACTS}
+
+Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
+
+- Titulo: Um titulo que resume a narrativa proposta.
+- Proposta: Proposta que deverá evoluir com base na NARRATIVA, na PERSONAGEM, estrutura e recurso narrativo e motivo/objetivo sugerido pelo usuário. 
+
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
+
+PROMPT_PERSONAGEM_INICIANTE = """
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS. 
+
+Todas as  Narrativas PROPOSTAS possuem foco no personagem: {PERSONAGEM}
+
+################################
+ESTRUTURA E RECURSOS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+
+
+{RECURSO_INICIANTE}
+
+################################
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+
+{USO_HISTORIA}
+
+################################
+FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
+
+{FACTS}
+
+Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
+
+- Titulo: Um titulo que resume a narrativa proposta.
+- Proposta: Proposta que deverá evoluir com base na NARRATIVA, na PERSONAGEM, estrutura e recurso narrativo e motivo/objetivo sugerido pelo usuário. 
+
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
+
+PROMPT_FATO_INICIANTE = """
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS. 
+
+Todas as  Narrativas PROPOSTAS possuem foco no fato: {FATO}
+
+################################
+ESTRUTURA E RECURSOS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+
+
+{RECURSO_INICIANTE}
+
+################################
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+
+{USO_HISTORIA}
+
+################################
+FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
+
+{FACTS}
+
+Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
+
+- Titulo: Um titulo que resume a narrativa proposta.
+- Proposta: Proposta que deverá evoluir com base na NARRATIVA, na PERSONAGEM, estrutura e recurso narrativo e motivo/objetivo sugerido pelo usuário. 
+
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
+
+PROMPT_TEXTO_INICIANTE = """
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS. 
+
+
+################################
+ESTRUTURA E RECURSOS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+
+
+{RECURSO_INICIANTE}
+
+################################
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+
+{USO_HISTORIA}
+
+################################
+FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
+
+{FACTS}
+
+Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
+
+- Titulo: Um titulo que resume a narrativa proposta.
+- Proposta: Proposta que deverá evoluir com base na NARRATIVA, na PERSONAGEM, estrutura e recurso narrativo e motivo/objetivo sugerido pelo usuário. 
+
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
+def getPromptPersonagemIniciante(COUNT, PERSONAGEM, RECURSO_INICIANTE, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_PERSONAGEM_INICIANTE.format(
+        COUNT=COUNT,
+        PERSONAGEM=PERSONAGEM,
+        RECURSO_INICIANTE=RECURSO_INICIANTE,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )    
+    
+def getPromptPersonagemIntermediario(COUNT, PERSONAGEM, RECURSO, ESTRUTURA, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_PERSONAGEM_INTERMEDIARIO.format(
+        COUNT=COUNT,
+        PERSONAGEM=PERSONAGEM,
+        RECURSO=RECURSO,
+        ESTRUTURA=ESTRUTURA,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )     
+    
+
+def getPromptFatoIniciante(COUNT, FATO, RECURSO_INICIANTE, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_FATO_INICIANTE.format(
+        COUNT=COUNT,
+        FATO=FATO,
+        RECURSO_INICIANTE=RECURSO_INICIANTE,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )  
+    
+def getPromptFatoIntermediario(COUNT, FATO, RECURSO, ESTRUTURA, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_FATO_INTERMEDIARIO.format(
+        COUNT=COUNT,
+        FATO=FATO,
+        RECURSO=RECURSO,
+        ESTRUTURA=ESTRUTURA,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )        
+
+def getPromptTextoIniciante(COUNT, RECURSO_INICIANTE, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_TEXTO_INICIANTE.format(
+        COUNT=COUNT,
+        RECURSO_INICIANTE=RECURSO_INICIANTE,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )    
+
+
+def getPromptTextoIntermediario(COUNT, RECURSO,ESTRUTURA, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_TEXTO_INTERMEDIARIO.format(
+        COUNT=COUNT,
+        RECURSO=RECURSO,
+        ESTRUTURA=ESTRUTURA,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )  
+
+def getPromptFinalTextoIniciante(nova_historia,titulo, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_FINAL_TEXTO_INICIANTE.format(
+        nova_historia = nova_historia,
+        titulo=titulo,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )    
+
+
+# def getPromptTipoHistoria(tipo, personagem, fato):
+#     saida = ""
+#     if uso == "Personagem":
+#         saida = f"Crie uma narrativa envolvente a partir da história de {personagem}."
+#     elif uso == "Texto":
+#         saida = f"Crie uma narrativa "
+#     elif uso == "Fato":
+#         saida = f"Crie uma narrativa envolvente a partir do fato \"{fato}\"."
+#     return saida    
+
+def getPromptUsoHistoria(uso):
+    saida = ""
+    if uso == "REDE_SOCIAL":
+        saida = "Crie uma narrativa envolvente e concisa, desenvolvida especificamente para o formato de vídeo curto (como Reels, TikTok ou Shorts). A história deve capturar a atenção nos primeiros segundos, desenvolver-se com ritmo ágil e terminar com uma mensagem clara ou emocionalmente marcante. Ideal para gerar conexão e engajamento em plataformas sociais."
+    elif uso == "PODCAST":
+        saida = "Crie uma narrativa pensada especificamente para o formato de áudio, como podcasts, audioclipes ou narrativas faladas. A história deve ser envolvente desde os primeiros segundos, com ritmo fluido, linguagem acessível e imagens mentais fortes, explorando recursos como entonação, pausa e emoção para manter o ouvinte conectado até o fim."
+    elif uso == "CONTEUDO":
+        saida = "Crie uma narrativa clara, envolvente e bem estruturada, desenvolvida especialmente para ser utilizada em formato de texto escrito — como em livros, panfletos, websites ou materiais institucionais. A história deve ser adaptada ao suporte escolhido, com atenção ao tom, à organização das ideias e ao impacto da mensagem, garantindo leitura fluida e conexão com o público-alvo."
+    return saida
+
+
+# Prompt para Recursos Iniciantes
+
+def getPromptRecursoIniciante(recurso):
+    saida = ""
+    if recurso == "IMPACTO_INICIO":
+        saida = "Crie uma narrativa que comece de forma impactante e envolvente, com uma cena ou acontecimento que prenda imediatamente a atenção do leitor. Pense em estruturas ideais para redes sociais, vídeos curtos ou qualquer formato que exija impacto nos primeiros segundos. A história deve despertar curiosidade, emoção ou surpresa logo nas primeiras linhas."
+    elif recurso == "MINHA_VERDADE":
+        saida = "Crie uma narrativa em forma de posicionamento pessoal que vá além de um simples desabafo. A mensagem deve revelar valores, opiniões ou princípios do narrador, estruturada de forma clara e intencional. Ideal para especialistas ou influenciadores que desejam se conectar com seu público com autenticidade, autoridade e propósito."
+    elif recurso == "BASTIDORES_SEGREDOS":
+        saida = "Construa uma narrativa revelando um aspecto inesperado, pouco discutido ou comumente mal compreendido do seu tema principal. A história deve surpreender, esclarecer ou provocar reflexão, destacando um ponto de vista original e autêntico. Ideal para conteúdos que buscam diferenciar-se por profundidade e frescor intelectual."
+    elif recurso == "ORDEM_CRONOLOGICA":
+        saida == "Desenvolva uma narrativa que destaque uma sequência de eventos marcantes, como a trajetória de uma marca, a evolução de uma ideia ao longo do tempo ou o passo a passo de uma jornada transformadora. A história deve apresentar progressão clara, com marcos importantes, aprendizados e momentos de virada, permitindo que o leitor acompanhe a construção de algo significativo do início ao fim."
+    elif recurso == "QUEDA_SUPERACAO":
+        saida == "Crie uma narrativa onde o personagem (ou narrador) enfrenta um desafio significativo, atravessa um período de crise e, através de escolhas ou descobertas, encontra uma solução que o leva a um lugar emocional, pessoal ou profissionalmente melhor. A história deve transmitir superação, aprendizado e inspiração, sendo ideal para compartilhar lições de vida autênticas e transformadoras."
+    elif recurso == "APRENDI_DIFICIL":
+        saida == "Elabore uma narrativa pessoal centrada em um erro que você cometeu. Descreva o contexto da situação, o impacto desse equívoco e, principalmente, a lição valiosa que ele trouxe. A história deve transmitir vulnerabilidade e autenticidade, ao mesmo tempo em que fortalece sua autoridade e conexão com o público."
+    return saida
+
 def get_instrucoes(nova_historia, personagem, idioma):
     return instrucoes.format(
         nova_historia = nova_historia,
@@ -367,6 +742,188 @@ def get_prompt_personagem(count, personagem, narrativa, structure, facts, recurs
         RECURSO=recurso.upper(),
         IDIOMA=idioma.upper()
     )
+
+
+como_comecar = ["Impacto logo no início", "Comece com uma Pergunta", "Opinião com Contexto", "O que Quase Ninguém Sabe"]
+
+def getComoComecar():
+    return como_comecar
+
+
+COMO_COMECAR_1 = "Comece com uma revelação surpreendente, uma pergunta forte ou algo que prende atenção nos primeiros segundos. Ideal para redes sociais, vídeos curtos e conteúdos que precisam chamar atenção rápido."
+COMO_COMECAR_2 = "Inicie com uma dúvida comum do seu público e responda de forma simples, direta ou criativa. Boa para criar conexão e gerar engajamento."
+COMO_COMECAR_3 = "Dê sua visão sobre um tema com base na sua experiência. Vai além do desabafo: é um posicionamento pessoal com história. Funciona muito bem para influenciadores, especialistas e criadores com propósito."
+COMO_COMECAR_4 = "Mostre algo que as pessoas raramente contam: um segredo, bastidor ou erro comum. Desperta curiosidade e posiciona você como alguém autêntico."
+
+def getComoComecarTexto(como_comecar_param) -> str:
+    saida = ""
+    if como_comecar_param == como_comecar[0]:
+        saida = COMO_COMECAR_1
+    elif como_comecar_param == como_comecar[1]:
+        saida = COMO_COMECAR_2        
+    elif como_comecar_param == como_comecar[2]:
+        saida = COMO_COMECAR_3  
+    elif como_comecar_param == como_comecar[3]:
+        saida = COMO_COMECAR_4     
+    return saida         
+         
+como_organizar = ["História em Ordem Cronológica", "Emoções em Alta e Baixa", "Queda e Superação", "Tentei, Errei, Acertei", "Guia Prático", "Transformação Visível"]
+
+def getComoOrganizar():
+    return como_organizar
+
+COMO_ORGANIZAR_1 = "Conte sua história na sequência em que tudo aconteceu: começo, meio e fim. Ótimo para mostrar uma jornada, trajetória ou processo de crescimento."
+COMO_ORGANIZAR_2 = "Alterne momentos de desafio e superação, tensão e humor. Ideal para criar conexão emocional e engajar o público."
+COMO_ORGANIZAR_3 = "A história começa bem, depois algo dá errado. Você enfrenta um problema, supera e aprende com isso. Excelente para histórias inspiradoras."
+COMO_ORGANIZAR_4 = "Mostre que tentou uma solução que não deu certo, até encontrar o caminho ideal. Ensina com autenticidade e humaniza a narrativa."
+COMO_ORGANIZAR_5 = "Explique como fazer algo com etapas claras. Ideal para tutoriais, passo a passo e mostrar seu método."
+COMO_ORGANIZAR_6 = "Mostre uma mudança clara entre o “antes” e o “depois”. Pode ser uma mudança pessoal, estética, de mentalidade ou de resultados."
+
+
+def getComoOrganizarTexto(como_organizar_param) -> str:
+    saida = ""
+    if como_organizar_param == como_organizar[0]:
+        saida = COMO_ORGANIZAR_1
+    elif como_organizar_param == como_organizar[1]:
+        saida = COMO_ORGANIZAR_2        
+    elif como_organizar_param == como_organizar[2]:
+        saida = COMO_ORGANIZAR_3  
+    elif como_organizar_param == como_organizar[3]:
+        saida = COMO_ORGANIZAR_4     
+    elif como_organizar_param == como_organizar[4]:
+        saida = COMO_ORGANIZAR_5 
+    elif como_organizar_param == como_organizar[5]:
+        saida = COMO_ORGANIZAR_6                 
+    return saida     
+
+
+
+como_ensinar = ["Aprendi do Jeito Difícil", "O Problema Era a Solução"]
+
+def getComoEnsinar():
+    return como_ensinar
+
+COMO_ENSINAR_1 = "Compartilhe um erro que cometeu e o que ele te ensinou. Mostra vulnerabilidade e autoridade ao mesmo tempo."
+COMO_ENSINAR_2 = "Comece com algo que parecia ruim, mas acabou sendo um ponto forte. Mostra crescimento e mudança de visão."
+
+def getComoEnsinarTexto(como_ensinar_param) -> str:
+    saida = ""
+    if como_ensinar_param == como_ensinar[0]:
+        saida = COMO_ENSINAR_1
+    elif como_ensinar_param == como_ensinar[1]:
+        saida = COMO_ENSINAR_2  
+    return saida    
+
+
+formas_contar = ["História Rápida", "Comparação Simples", "Antes e Depois"]
+
+def getFormasContar():
+    return formas_contar
+
+FORMAS_CONTAR_1 = "Conte uma mini-história (real ou fictícia) para ilustrar uma ideia."
+FORMAS_CONTAR_2 = "Compare seu tema com algo fácil de entender. Pode usar metáforas, analogias ou dar vida a um conceito."
+FORMAS_CONTAR_3 = "Mostre uma transformação ou contraste entre duas situações. Isso dá impacto à sua mensagem."
+
+def getFormasContarTexto(formas_contar_param) -> str:
+    saida = ""
+    if formas_contar_param == formas_contar[0]:
+        saida = FORMAS_CONTAR_1
+    elif formas_contar_param == formas_contar[1]:
+        saida = FORMAS_CONTAR_2  
+    elif formas_contar_param == formas_contar[2]:
+        saida = FORMAS_CONTAR_3          
+    return saida  
+
+
+engajamento_curiosidade = ["Pergunta ou Curiosidade", "Surpresa ou Reviravolta", "Gancho Final"]
+
+def getEngajamentoCuriosidade():
+    return engajamento_curiosidade
+
+ENGAJAMENTO_CURIOSIDADE_1 = "Abra com uma pergunta ou deixe uma “pulga atrás da orelha”."
+ENGAJAMENTO_CURIOSIDADE_2 = "Traga algo inesperado no meio ou fim do conteúdo. Quebre a expectativa."
+ENGAJAMENTO_CURIOSIDADE_3 = "Termine com uma pergunta, provocação ou promessa de continuação. Deixe o leitor querendo mais."
+
+def getEngajamentoCuriosidadeTexto(eng_curiosidade_param) -> str:
+    saida = ""
+    if eng_curiosidade_param == engajamento_curiosidade[0]:
+        saida = ENGAJAMENTO_CURIOSIDADE_1
+    elif eng_curiosidade_param == engajamento_curiosidade[1]:
+        saida = ENGAJAMENTO_CURIOSIDADE_2  
+    elif eng_curiosidade_param == engajamento_curiosidade[2]:
+        saida = ENGAJAMENTO_CURIOSIDADE_3          
+    return saida  
+       
+
+tom_voz = ["Tom Pessoal","Alívio Cômico"]
+
+def getTomVoz():
+    return tom_voz
+
+TOM_VOZ_1 = "Fale como você fala na vida real. Conte do seu ponto de vista e com sua voz."
+TOM_VOZ_2 = "Use humor ou ironia para deixar o conteúdo mais leve e humano."
+
+def getTomVozTexto(tom_voz_param) -> str:
+    saida = ""
+    if tom_voz_param == tom_voz[0]:
+        saida = TOM_VOZ_1
+    elif tom_voz_param == tom_voz[1]:
+        saida = TOM_VOZ_2         
+    return saida  
+
+
+clareza_autoridade = ["Contexto Rápido", "Prova com Dados", "Dica Prática"]
+
+def getClarezaAutoridade():
+    return clareza_autoridade
+       
+CLAREZA_AUTORIDADE_1 = "Explique o básico para quem está chegando agora. Onde, quando, por quê?"
+CLAREZA_AUTORIDADE_2 = "Inclua um número, dado ou fato que sustente o que você está dizendo."
+CLAREZA_AUTORIDADE_3 = "Entregue um passo simples, uma dica fácil ou um mini tutorial útil."
+
+def getClarezaAutoridadeTexto(clareza_autoridade_param) -> str:
+    saida = ""
+    if clareza_autoridade_param == clareza_autoridade[0]:
+        saida = CLAREZA_AUTORIDADE_1
+    elif clareza_autoridade_param == clareza_autoridade[1]:
+        saida = CLAREZA_AUTORIDADE_2
+    elif clareza_autoridade_param == clareza_autoridade[2]:
+        saida = CLAREZA_AUTORIDADE_3
+                 
+    return saida         
+
+posicionamento_conexao = ["Discordância Construtiva","Conexão com o Leitor"]
+
+def getPosicionamentoConexao():
+    return posicionamento_conexao
+
+POSICIONAMENTO_CONEXAO_1 = "Questione ideias comuns de forma respeitosa. Mostre sua visão."
+POSICIONAMENTO_CONEXAO_2 = "Mostre como aquilo afeta quem está lendo. Convide à interação."
+
+def getPosicionamentoConexaoTexto(posicionamento_conexao_param) -> str:
+    saida = ""
+    if posicionamento_conexao_param == posicionamento_conexao[0]:
+        saida = POSICIONAMENTO_CONEXAO_1
+    elif posicionamento_conexao_param == posicionamento_conexao[1]:
+        saida = POSICIONAMENTO_CONEXAO_2                 
+    return saida         
+
+
+recursos_extras = ["Minha Experiência","Tradução Simples"]
+
+def getRecursosExtras():
+    return recursos_extras
+
+RECURSOS_EXTRAS_1 = "Fale de algo que você viveu relacionado ao tema. Traz autenticidade e proximidade."
+RECURSOS_EXTRAS_2 = "Explique um conceito difícil com palavras simples, como se falasse com um amigo."
+
+def getRecursosExtrasTexto(param) -> str:
+    saida = ""
+    if param == recursos_extras[0]:
+        saida = RECURSOS_EXTRAS_1
+    elif param == recursos_extras[1]:
+        saida = RECURSOS_EXTRAS_2                 
+    return saida  
 
        
 estruturas = ["LINHA DO TEMPO", "ALTERNÂNCIA EMOCIONAL","LEAD", "O HOMEM NO BURACO", "DOS TRAPOS À RIQUEZA", "SOLUÇÃO ERRADA"]

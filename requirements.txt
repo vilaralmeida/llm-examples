@@ -17,3 +17,4 @@ json
 python-dotenv
 boto3
 streamlit_quill
+streamlit-product-card
