@@ -364,6 +364,44 @@ IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
 
 """
 
+PROMPT_TEXTO_AVANCADO = """
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS. 
+
+################################
+ESTRUTURA(S) DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{ESTRUTURA}
+
+
+################################
+RECURSOS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{RECURSO}
+
+################################
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+
+{USO_HISTORIA}
+
+################################
+FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
+
+{FACTS}
+
+Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
+
+- Titulo: Um titulo que resume a narrativa proposta.
+- Proposta: Proposta que deverá evoluir com base na NARRATIVA, na PERSONAGEM, estrutura e recurso narrativo e motivo/objetivo sugerido pelo usuário. 
+
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
 
 PROMPT_TEXTO_INTERMEDIARIO = """
 Você é uma inteligência artificial especialista em storytelling. 
@@ -377,6 +415,47 @@ PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS.
 
 ################################
 ESTRUTURA DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{ESTRUTURA}
+
+
+################################
+RECURSOS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{RECURSO}
+
+################################
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+
+{USO_HISTORIA}
+
+################################
+FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
+
+{FACTS}
+
+Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
+
+- Titulo: Um titulo que resume a narrativa proposta.
+- Proposta: Proposta que deverá evoluir com base na NARRATIVA, na PERSONAGEM, estrutura e recurso narrativo e motivo/objetivo sugerido pelo usuário. 
+
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
+
+PROMPT_FATO_AVANCADO = """
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS. 
+
+Todas as  Narrativas PROPOSTAS possuem foco no fato: {FATO}
+
+################################
+ESTRUTURAS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
 {ESTRUTURA}
 
 
@@ -432,6 +511,45 @@ AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
 ################################
 FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
 
+{FACTS}
+
+Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
+
+- Titulo: Um titulo que resume a narrativa proposta.
+- Proposta: Proposta que deverá evoluir com base na NARRATIVA, na PERSONAGEM, estrutura e recurso narrativo e motivo/objetivo sugerido pelo usuário. 
+
+
+IMPORTANTE: O RESULTADO DEVE SER ESCRITO NO IDIOMA: {IDIOMA}
+
+"""
+
+
+PROMPT_PERSONAGEM_AVANCADO = """
+Você é uma inteligência artificial especialista em storytelling. 
+
+Sua missão é criar narrativas envolventes, originais e bem estruturadas com base nos elementos fornecidos. 
+
+Use criatividade, coerência e emoção para transformar ideias em histórias que conectam, inspiram e prendem a atenção do público.
+
+PRECISO QUE ME DÊ {COUNT} PROPOSTAS DE COMO CRIAR NARRATIVAS. 
+
+Todas as  Narrativas PROPOSTAS possuem foco no personagem: {PERSONAGEM}
+
+################################
+ESTRUTURAS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{ESTRUTURA}
+
+
+################################
+RECURSOS DAS NARRATIVAS PROPOSTAS DA SEGUINTE FORMA:
+{RECURSO}
+
+################################
+AS NARRATIVAS ESTÃO SENDO CRIADAS PELO SEGUINTE MOTIVO/OBJETIVO:
+{USO_HISTORIA}
+
+################################
+FATOS MAIS RELEVANTES QUE DEVEM SER CONSIDERADOS NA CONSTRUÇÃO DAS NARRATIVAS PROPOSTAS:
 {FACTS}
 
 Ao final, apresente ao usuário as seguintes informações por NARRATIVA PROPOSTA:
@@ -615,7 +733,17 @@ def getPromptPersonagemIntermediario(COUNT, PERSONAGEM, RECURSO, ESTRUTURA, USO_
         FACTS=FACTS,
         IDIOMA=IDIOMA
     )     
-    
+
+def getPromptPersonagemAvancado(COUNT, PERSONAGEM, RECURSO, ESTRUTURA, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_PERSONAGEM_AVANCADO.format(
+        COUNT=COUNT,
+        PERSONAGEM=PERSONAGEM,
+        RECURSO=RECURSO,
+        ESTRUTURA=ESTRUTURA,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )    
 
 def getPromptFatoIniciante(COUNT, FATO, RECURSO_INICIANTE, USO_HISTORIA, FACTS, IDIOMA):
     return PROMPT_FATO_INICIANTE.format(
@@ -636,7 +764,18 @@ def getPromptFatoIntermediario(COUNT, FATO, RECURSO, ESTRUTURA, USO_HISTORIA, FA
         USO_HISTORIA=USO_HISTORIA,
         FACTS=FACTS,
         IDIOMA=IDIOMA
-    )        
+    )    
+    
+def getPromptFatoAvancado(COUNT, FATO, RECURSO, ESTRUTURA, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_FATO_AVANCADO.format(
+        COUNT=COUNT,
+        FATO=FATO,
+        RECURSO=RECURSO,
+        ESTRUTURA=ESTRUTURA,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )         
 
 def getPromptTextoIniciante(COUNT, RECURSO_INICIANTE, USO_HISTORIA, FACTS, IDIOMA):
     return PROMPT_TEXTO_INICIANTE.format(
@@ -650,6 +789,16 @@ def getPromptTextoIniciante(COUNT, RECURSO_INICIANTE, USO_HISTORIA, FACTS, IDIOM
 
 def getPromptTextoIntermediario(COUNT, RECURSO,ESTRUTURA, USO_HISTORIA, FACTS, IDIOMA):
     return PROMPT_TEXTO_INTERMEDIARIO.format(
+        COUNT=COUNT,
+        RECURSO=RECURSO,
+        ESTRUTURA=ESTRUTURA,
+        USO_HISTORIA=USO_HISTORIA,
+        FACTS=FACTS,
+        IDIOMA=IDIOMA
+    )  
+
+def getPromptTextoAvancado(COUNT, RECURSO,ESTRUTURA, USO_HISTORIA, FACTS, IDIOMA):
+    return PROMPT_TEXTO_AVANCADO.format(
         COUNT=COUNT,
         RECURSO=RECURSO,
         ESTRUTURA=ESTRUTURA,
@@ -1187,3 +1336,66 @@ def get_recurso_narrativo(recurso) -> str:
     elif recurso == recursos[27]:
         saida = RECURSO_28                                                                                                                                                                    
     return saida    
+
+
+
+def getRecursosAvancados(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13):
+    saida = []
+    if r1:
+        saida.append("Use uma história curta ou inventada (real ou não) para explicar algo de forma mais envolvente.")
+    if r2:
+        saida.append("Compare o tema com algo que todo mundo entende. Pode ser uma metáfora, um símbolo ou até dar “vida” a um conceito.")
+    if r3:
+        saida.append("Mostre a diferença entre duas situações. Pode ser o que mudou, melhorou ou piorou. Isso dá força à sua mensagem.")
+    if r4:
+        saida.append("Faça uma pergunta que desperte o interesse ou sugira que você tem uma informação escondida.")
+    if r5:
+        saida.append("Traga algo inesperado ou mude o rumo do conteúdo no final. Isso segura a atenção.")
+    if r6:
+        saida.append("Termine com algo que deixa o leitor querendo mais: uma pergunta, promessa ou continuação.")
+    if r7:
+        saida.append("Use sua voz. Fale como você. Pode ser contando em primeira pessoa, explicando diretamente ao leitor ou fazendo piada com a própria narrativa.")
+    if r8:
+        saida.append("Use humor para deixar tudo mais leve. Pode ser uma piada, uma quebra engraçada ou algo inesperado.")
+    if r9:
+        saida.append("Explique o básico de forma simples: o que está acontecendo? Onde? Com quem? Por quê?")
+    if r10:
+        saida.append("Traga um número ou dado interessante que sustente seu ponto ou surpreenda.")
+    if r11:
+        saida.append("Liste passos fáceis ou ofereça uma solução rápida. Ideal para conteúdos úteis e objetivos.")
+    if r12:
+        saida.append("Mostre um ponto de vista diferente do comum, questione ideias ou se posicione contra algo — com respeito e argumentos.")
+    if r13:
+        saida.append("Mostre como o conteúdo tem a ver com quem está lendo e incentive a pessoa a comentar, pensar ou agir.")
+    return saida
+
+
+def getEstruturasAvancadas(e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,e11,e12):
+    saida = []
+    if e1:
+        saida.append("Conte a sua história seguindo a ordem dos acontecimentos, do começo ao fim. Essa estrutura é ideal para mostrar uma sequência de eventos, como a trajetória de uma marca, a evolução de uma ideia, ou o passo a passo de uma jornada. \n")
+    if e2:        
+        saida.append("Aqui, sua narrativa vai alternar entre altos e baixos emocionais. Um momento difícil dá espaço a uma conquista, ou uma tensão é quebrada com humor. Ideal para engajar o público e criar conexão emocional. \n")
+    if e3:
+        saida.append("Você começa com tudo: uma revelação surpreendente, uma pergunta intrigante ou algo que prende a atenção de cara. Essa estrutura é perfeita para redes sociais, vídeos curtos ou textos que precisam fisgar o leitor em segundos. \n")
+    if e4:
+        saida.append("A história começa bem, mas algo dá errado. O personagem (ou você) enfrenta um desafio, passa por uma crise, mas encontra uma saída e termina em um lugar melhor. Boa para histórias inspiradoras e lições de vida. \n")
+    if e5:        
+        saida.append("Tudo começa com algo que parece ruim, inútil ou sem valor. Mas ao longo da história, esse \"problema\" se revela uma grande força. Excelente para transformar percepções e mostrar crescimento. \n")
+    if e6:        
+        saida.append("Você começa com um problema e tenta uma solução que parece funcionar... mas não funciona. Depois de um revés, encontra o caminho certo. Ideal para mostrar aprendizado, evolução e autenticidade. \n")
+    if e7:        
+        saida.append("Mostre como fazer algo, do início ao fim, em etapas claras. Ideal para tutoriais, dicas profissionais, ou mostrar seu processo criativo. \n")
+    if e8:        
+        saida.append("Mostre uma mudança: de uma situação inicial para um resultado final impressionante. Pode ser uma mudança pessoal, profissional, estética ou de mentalidade. Muito usado por coaches, terapeutas, criadores de estilo ou fitness. \n")
+    if e9:        
+        saida.append("Inicie com uma dúvida comum do seu público e responda de forma clara, objetiva ou criativa. Boa para criar conexão direta e gerar engajamento rápido. \n")
+    if e10:        
+        saida.append("Compartilhe sua visão sobre um tema com base na sua vivência ou experiência. Não é só um desabafo: é um posicionamento com história. Funciona muito bem para influenciadores e especialistas. \n")                            
+    if e11:
+        saida.append("Conte sobre um erro que cometeu e como ele te ensinou algo valioso. Isso aproxima você do público e passa autoridade de forma autêntica. \n")
+    if e12:        
+        saida.append("Revele algo inesperado, pouco falado ou mal compreendido sobre seu tema. Essa estrutura desperta curiosidade e posiciona você como alguém que traz conteúdo original. \n")
+        
+    return saida    
+        
